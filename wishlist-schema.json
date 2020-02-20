@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "title": "kj wishlist",
+    "description": "A wishlist that refine DIM's",
+
+    "type": "object",
+    "patternProperties": {
+        "\\d": {
+            "description": "God roll groups for each weapon",
+
+            "type":"array",
+            "items": {
+                "description": "A god roll group",
+
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "God roll group's name",
+
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "God roll group's description",
+
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "God roll group's tag (use lowercase, number and underline)",
+
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "string",
+                            "pattern": "[a-z0-9_]*"
+                        }
+                    },
+                    "accurate_match": {
+                        "description": "If this god roll group needs an accurate match (only for perk slot)",
+
+                        "type": "boolean"
+                    },
+                    "perks": {
+                        "description": "God roll picks\nNegative number means exclude.",
+
+                        "type": "object",
+                        "properties": {
+                            "masterworks": {
+                                "description": "Pick masterwork",
+
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            },
+                            "mods": {
+                                "description": "Pick mod that adapt this group",
+
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "patternProperties": {
+                            "slot\\d+": {
+                                "description": "Pick perks for each slot.",
+
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
