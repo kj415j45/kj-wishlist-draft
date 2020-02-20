@@ -1,6 +1,6 @@
 # kj wishlist draft
 
-As you may know, [DIM](https://github.com/DestinyItemManager/DIM) has a [community maintain wishlist](https://github.com/48klocs/dim-wish-list-sources). But this wishlist is just a bad smell, full of cartesian product. It's big and hard to read. This wishlist draft aims to refine it with a new format.
+As you may know, [DIM](https://github.com/DestinyItemManager/DIM) has a [community maintain wishlist](https://github.com/48klocs/dim-wish-list-sources). However, DIM wishlist has many duplicates that leads to big file size. This wishlist draft aims to refine it with a new format.
 
 ## What's new in this format?
 
