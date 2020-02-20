@@ -64,7 +64,7 @@
                                 }
                             },
                             "plugs": {
-                                "description": "God roll picks\nNegative number means exclude.",
+                                "description": "God roll picks",
         
                                 "type": "array",
                                 "items": {
