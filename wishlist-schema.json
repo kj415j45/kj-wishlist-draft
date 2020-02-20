@@ -3,71 +3,76 @@
     "title": "kj wishlist",
     "description": "A wishlist that refine DIM's",
 
+
     "type": "object",
-    "patternProperties": {
-        "\\d": {
-            "description": "God roll groups for each weapon",
-
-            "type":"array",
+    "properties": {
+        "authors": {
+            "type": "array",
             "items": {
-                "description": "A god roll group",
-
                 "type": "object",
                 "properties": {
                     "name": {
-                        "description": "God roll group's name",
-
+                        "description": "Author's name",
                         "type": "string"
                     },
-                    "description": {
-                        "description": "God roll group's description",
-
-                        "type": "string"
-                    },
-                    "tags": {
-                        "description": "God roll group's tag (use lowercase, number and underline)",
-
-                        "type": "array",
-                        "uniqueItems": true,
-                        "items": {
-                            "type": "string",
-                            "pattern": "[a-z0-9_]*"
-                        }
-                    },
-                    "accurate_match": {
-                        "description": "If this god roll group needs an accurate match (only for perk slot)",
-
-                        "type": "boolean"
-                    },
-                    "perks": {
-                        "description": "God roll picks\nNegative number means exclude.",
-
+                    "url": {
+                        "description": "Contact url",
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            }
+        },
+        "data": {
+            "type": "object",
+            "patternProperties": {
+                "\\d": {
+                    "description": "God roll groups for each weapon",
+        
+                    "type":"array",
+                    "items": {
+                        "description": "A god roll group",
+        
                         "type": "object",
                         "properties": {
-                            "masterworks": {
-                                "description": "Pick masterwork",
+                            "name": {
+                                "description": "God roll group's name",
+        
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "God roll group's description",
+        
+                                "type": "string"
+                            },
+                            "authors": {
+                                "description": "Authors name",
 
                                 "type": "array",
                                 "items": {
-                                    "type": "number"
+                                    "type": "string"
                                 }
                             },
-                            "mods": {
-                                "description": "Pick mod that adapt this group",
-
+                            "tags": {
+                                "description": "God roll group's tag (use lowercase, number and underline)",
+        
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
-                                    "type": "number"
+                                    "type": "string",
+                                    "pattern": "[a-z0-9_]*"
                                 }
-                            }
-                        },
-                        "patternProperties": {
-                            "slot\\d+": {
-                                "description": "Pick perks for each slot.",
-
+                            },
+                            "plugs": {
+                                "description": "God roll picks\nNegative number means exclude.",
+        
                                 "type": "array",
                                 "items": {
-                                    "type": "number"
+                                    "type":"array",
+                                    "items": {
+                                        "type": "integer",
+                                        "minimum": 0
+                                    }
                                 }
                             }
                         }
